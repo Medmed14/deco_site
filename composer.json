@@ -1,0 +1,12 @@
+{
+    "name": "medme/deco",
+    "authors": [
+        {
+            "name": "Mehdi",
+            "email": "didou.mehdi@laposte.net"
+        }
+    ],
+    "require": {
+        "stripe/stripe-php": "^7.76"
+    }
+}

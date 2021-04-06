@@ -79,5 +79,6 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script src="./assets/js/templatePublic.js"></script>
 <script src="./assets/js/scriptAjax.js"></script>
+<script src="./assets/js/scriptStripe.js"></script>
 </body>
 </html>
