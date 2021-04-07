@@ -33,5 +33,11 @@ class PublicModel extends Driver{
         return $objets;
     }
 
+    public function updateStock(Objet $obj){
+        $sql = "UPDATE objet SET quantite = :quantite
+                WHERE id_obj = :id";
+        $result = $this->getRequest($sql, ['quantite'=>$obj->getQuantite(), 'id'=>$obj->getId_obj()]);
+        return $result->rowCount();
+    }
 
 }

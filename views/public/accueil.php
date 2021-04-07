@@ -117,18 +117,22 @@
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <form action="index.php?action=checkout" method="post">
+                                            <input type="hidden" name="id"  value="<?=$objet->getId_obj();?>">
                                             <input type="hidden" name="marque" value="<?= $objet->getMarque(); ?>">
                                             <input type="hidden" name="intitule" value="<?= $objet->getIntitule(); ?>">
                                             <input type="hidden" name="image" value="<?= $objet->getImage(); ?>">
                                             <input type="hidden" name="prix" value="<?= $objet->getPrix(); ?>">
-                                            <?php if ($objet->getQuantite() > 0) { ?>
+                                            <input type="hidden" name="quantite" value="<?= $objet->getQuantite(); ?>">
+                                            <?php if($objet->getQuantite() >= 1){ ?>
                                                 <button type="submit" name="envoi" class="btn btn-success">Acheter</button>
-                                                <span class="badge text-success">en stock</span>
-                                            <?php }else{ ?>
-                                        </form>
-                                            <a href="index.php?action=order&id=<?= $objet->getId_obj(); ?>"class="btn btn-warning">Commander</a>
-                                            <span class="badge text-warning">rupture temporaire</span>
-                                        <?php } ?>
+                                                <span class="badge text-success ">en stock</span>
+                                                <?php } ?>
+                                            </form>
+                                            <?php if($objet->getQuantite() == 0){ ?>
+
+                                            <a href="index.php?action=order&id=<?=$objet->getId_obj();?>" class="btn btn-warning">Commander</a>
+                                            <span class="badge text-warning ">rupture temporaire</span>
+                                            <?php } ?>
                                     </li>
                                 </ul>
                             </div>
