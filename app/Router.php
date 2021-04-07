@@ -49,6 +49,7 @@ class Router
                         break;
                     case 'edit_obj':
                         $this->ctrlobj->editObjet();
+                        break;
                     case 'list_u':
                         $this->ctrluser->listUsers();
                         break;
@@ -78,6 +79,15 @@ class Router
                         break;
                     case 'cancel':
                         $this->ctrlpub->annulation();
+                        break;
+                    case 'apropos':
+                        $this->ctrlpub->apropos();
+                        break;
+                    case 'contact':
+                        $this->ctrlpub->contact();
+                        break;
+                    case 'cgv':
+                        $this->ctrlpub->cgv();
                         break;
                     default:
                         throw new Exception('Action non definie');

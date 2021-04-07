@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="png" href="./assets/images/favicon.ico"/>
     <title>DeCo'R</title>
-    <link rel="stylesheet" href="./assets/css/templatePublic.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/templatePublic.css" >
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 
-    
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark col-12 pr-5">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php"><img src="./assets/images/logo.png" alt="logo de l'entreprise Deco'r " width="80"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,9 +36,9 @@
                     </ul>
                 </div>
             </div>
-            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" class="input-group mr-5">
-                <input  class="form-control text-center" type="search" name="search" id="search" placeholder="Rechecher un objet sur le site...">
-                <button type="submit" class="btn btn-outline-secondary" name="soumis"><i class="fas fa-search"></i></button>
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" class="input-group">
+                <input  class="barreRech offset-3 form-control text-center rounded-pill" type="search" name="search" id="search" placeholder="Rechecher un objet sur le site...">
+                <button id="btnRech" type="submit" class="btn btn-outline-secondary rounded-pill" name="soumis"><i class="fas fa-search"></i></button>
             </form>
         </nav>
     </header>
@@ -49,7 +50,7 @@
 
     </main>
     <footer>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-5 pt-3 pb-3">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-3 pb-3">
             <div class="container-fluid ">
                 <a class="navbar-brand" href="index.php">DeCo'R</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,15 +62,20 @@
                             <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Conditions générales</a>
+                            <a class="nav-link" href="index.php?action=cgv">Conditions générales</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Politique de confidentialité</a>
                         </li>
                     </ul>
                 </div >
+                <p class="d-inline text-white">Suivez-nous sur les réseaux !</p>
             </div>
-            <div class=" container text-white "><i class="fa fa-copyright" aria-hidden="true"> Copyright 2021</i></div>
+            
+            <a href="https://www.instagram.com/?hl=fr"><i id="insta" class="d-inline fab fa-instagram text-white"></i></a>
+            <a href="https://www.facebook.com/"><i id="facebook" class="d-inline fab fa-facebook text-white"></i></a>
+            <a href="https://twitter.com/?lang=fr"><i id="tweeter" class="d-inline fab fa-twitter-square text-white"></i></a>
+            <div id="foot" class="text-white"><i class="fa fa-copyright" aria-hidden="true"> Copyright 2021</i></div>
         </nav>
     </footer>
 

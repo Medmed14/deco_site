@@ -45,7 +45,7 @@
         <h1>Les nouvelles collections Meubles et Décoration
         </h1>
         <h3>Inspirées des grandes tendances déco 2021</h3>
-        <h6 class="mt-2 text-secondary">« Nous avons eu à cœur de donner de l’âme aux maisons, en vous proposant des collections toujours plus stylées, généreuses et responsables ».<br/> Géraldine Florin, Directrice Artistique</h6>
+        <h6 class="mt-4 text-secondary">« Nous avons eu à cœur de donner de l’âme aux maisons, en vous proposant des collections toujours plus stylées, généreuses et responsables ».<br/> Mehdi Memmi, Directeur Artistique</h6>
     </div>
     <div id="carouselExampleControls" class="carousel slide mt-5 mb-5" data-bs-ride="carousel">
         <div class="carousel-inner">

@@ -72,6 +72,20 @@ class PublicController{
         }
     }
 
+
+    public function apropos(){
+            require_once('./views/public/apropos.php');
+    }
+
+    public function contact(){
+        require_once('./views/public/contact.php');
+    }
+
+    public function cgv(){
+        require_once('./views/public/cgv.php');
+    }
+
+
     public function payment(){
 
 
@@ -121,42 +135,51 @@ class PublicController{
             $prix= $_SESSION['pay']['prix'];
 
 
+            //Instantiation and passing `true` enables exceptions
             $mail = new PHPMailer(true);
 
             try {
-                
-                $mail->SMTPDebug = SMTP::DEBUG_SERVER;    
-                $mail->isSMTP();                                            
-                $mail->Host       = 'smtp.laposte.net';                     
-                $mail->SMTPAuth   = true;                                   
-                $mail->Username   = 'DecoRe';                     
-                $mail->Password   = 'Moumousse14!';                               
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         
-                $mail->Port       = 465;                                    
+                //Server settings
+                $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+                $mail->isSMTP();                                            //Send using SMTP
+                $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                $mail->Username   = 'supermedmed14@gmail.com';                     //SMTP username
+                $mail->Password   = 'Supermoumousse14!';                               //SMTP password
+                $mail->SMTPSecure = 'TLS';         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+                $mail->Port       = 587;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
-                
-                $mail->setFrom('DecoRe@laposte.net', 'DecoRe');
-                $mail->addAddress("$email", 'Mr/Mme');     
-                
-                $mail->isHTML(true);                                  
+                //Recipients
+                $mail->setFrom('decore@deco-site.com', 'DECORE');
+                $mail->addAddress("$email", 'Mr/Mme');     //Add a recipient
+                $mail->addAddress('didou.mehdi@laposte.net');               //Name is optional
+                // $mail->addReplyTo('info@example.com', 'Information');
+                // $mail->addCC('cc@example.com');
+                // $mail->addBCC('bcc@example.com');
+
+                //Attachments
+                // $mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+                // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+                //Content
+                $mail->isHTML(true);                                  //Set email format to HTML
                 $mail->Subject = 'Here is the subject';
-                $mail->Body    = "
+                $mail->Body = "
                     <h2>Confirmation d'achat</h2>
                     <div>
                      <b>Marque:  </b>".$marque." 
-                     <b>Modéle:  </b>".$intitule." 
+                     <b>Intitulé:  </b>".$intitule." 
                      <b>Prix:  </b>".$prix." 
                      <p>Nous vous remercions pour votre achat.</p>
                     </div>
-                    ";
+                ";
+                //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                 $mail->send();
                 echo 'Message has been sent';
 
-
             } catch (Exception $e) {
-
-                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
             }
         }
 
