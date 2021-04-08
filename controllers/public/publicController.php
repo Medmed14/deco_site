@@ -6,6 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+
 class PublicController{
 
     private $pubObjMod;
@@ -61,13 +62,17 @@ class PublicController{
             $prix = htmlspecialchars(addslashes($_POST['prix']));
             $nb = htmlspecialchars(addslashes($_POST['quantite']));
 
-            require_once('./views/public/objetItem.php');
+            require_once('./views/public/objetAchat.php');
+
         }
     }
+
+
 
     public function orderObj(){
         if(isset($_GET['id']) && !empty($_GET['id'])){
             $id = addslashes(htmlspecialchars($_GET['id']));
+            
             require_once('./views/public/orderForm.php');
         }
     }
@@ -88,7 +93,7 @@ class PublicController{
 
     public function payment(){
 
-
+        ////// STRIPE ////////
         \Stripe\Stripe::setApiKey('sk_test_51Id9HFAFJJA1I8csyxjFLHnWdmDKKbvVpCc7fxUAdHLD7uuFpSe8vjwYN2STU1zEwZzYQST8Xjapq2PPbaxRBza500FT9hUNK4');
 
         header('Content-Type: application/json');
@@ -134,19 +139,19 @@ class PublicController{
             $intitule= $_SESSION['pay']['intitule'];
             $prix= $_SESSION['pay']['prix'];
 
-
+            //////////////////// PHP MAILER  //////////////////////////
             //Instantiation and passing `true` enables exceptions
             $mail = new PHPMailer(true);
 
             try {
                 //Server settings
-                $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+                // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
                 $mail->isSMTP();                                            //Send using SMTP
                 $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
                 $mail->Username   = 'supermedmed14@gmail.com';                     //SMTP username
                 $mail->Password   = 'Supermoumousse14!';                               //SMTP password
-                $mail->SMTPSecure = 'TLS';         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                 $mail->Port       = 587;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
                 //Recipients

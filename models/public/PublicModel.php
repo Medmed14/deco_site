@@ -11,14 +11,14 @@ class PublicModel extends Driver{
 
         $result = $this->getRequest($sql, ["id"=>$objet->getCategorie()->getId_cat()]);
 
-        $rows = $result->fetchAll(PDO::FETCH_OBJ);    //fetch retourne 1 seul enregistrement  (donc on doit boucler), fetch all retourne toutes les lignes automatiquement
+        $rows = $result->fetchAll(PDO::FETCH_OBJ);    
         $objets = [];
-        // $rows retourne les lignes de notre table de bdd choisie dans la requete
+
         foreach($rows as $row){
 
             $newObjet = new Objet();
 
-            $newObjet->setId_obj($row->id_obj); // dans la bdd c'est id_v
+            $newObjet->setId_obj($row->id_obj);
             $newObjet->setMarque($row->marque);
             $newObjet->setIntitule($row->intitule);
             $newObjet->setPrix($row->prix);
@@ -39,5 +39,7 @@ class PublicModel extends Driver{
         $result = $this->getRequest($sql, ['quantite'=>$obj->getQuantite(), 'id'=>$obj->getId_obj()]);
         return $result->rowCount();
     }
+
+  
 
 }

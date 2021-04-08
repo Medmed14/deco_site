@@ -2,48 +2,9 @@
 ?>
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-       
-        <li class="nav-item">
-          <a class="nav-link" href="#"> Nouveautés </a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Produits
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <?php foreach ($tabCat as $cat) { ?>
-            <li><a class="dropdown-item" href="index.php?id=<?= $cat->getId_cat(); ?>"><?= ucfirst($cat->getNom_cat()); ?></a></li>
-            <?php } ?>
-            
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Pièces de la maison
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <?php foreach ($tabCat as $cat) { ?>
-            <li><a class="dropdown-item" href="index.php?id=<?= $cat->getId_cat(); ?>"><?= ucfirst($cat->getNom_cat()); ?></a></li>
-            <?php } ?>
-            
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
 <div class="container">
     <div class="mt-5 mb-5 text-center">
-        <h1>Les nouvelles collections Meubles et Décoration
-        </h1>
+        <h1>Les nouvelles collections Meubles et Décoration</h1>
         <h3>Inspirées des grandes tendances déco 2021</h3>
         <h6 class="mt-4 text-secondary">« Nous avons eu à cœur de donner de l’âme aux maisons, en vous proposant des collections toujours plus stylées, généreuses et responsables ».<br/> Mehdi Memmi, Directeur Artistique</h6>
     </div>
@@ -90,6 +51,9 @@
         </button>
     </div>
     <!--end carrousel-->
+
+
+
     <div class="row mt-5">
         <div class="col-12">
             <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -97,14 +61,14 @@
 
                     <div class="col-12">
                         <div class="card">
-                            <img src="./assets/images/<?= $objet->getImage(); ?>" class="card-img-top" alt="...">
+                            <img src="./assets/images/<?= $objet->getImage(); ?>" class="card-img-top" alt="<?= $objet->getIntitule(); ?>">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $objet->getMarque(); ?> <?= $objet->getIntitule(); ?></h5>
-                                <p class="card-text"><?= $objet->getDescription(); ?></p>
+                                <h5 class="card-title fw-bold"><?= $objet->getMarque(); ?> <?= $objet->getIntitule(); ?></h5>
+                                <p class="card-text mt-4 mb-5"><?= $objet->getDescription(); ?></p>
                                 <ul class="list-group">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         catégorie
-                                        <span class="badge bg-secondary rounded-pill"><?= $objet->getCategorie()->getNom_cat(); ?></span>
+                                        <span class="badge bg-secondary rounded-pill"><?= $objet->getCategorie()->getNom_cat();?></span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         prix
@@ -114,7 +78,6 @@
                                         nombre d'objet en stock
                                         <span class="badge bg-secondary rounded-pill"><?= $objet->getQuantite(); ?></span>
                                     </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <form action="index.php?action=checkout" method="post">
                                             <input type="hidden" name="id"  value="<?=$objet->getId_obj();?>">
@@ -130,7 +93,7 @@
                                             </form>
                                             <?php if($objet->getQuantite() == 0){ ?>
 
-                                            <a href="index.php?action=order&id=<?=$objet->getId_obj();?>" class="btn btn-warning">Commander</a>
+                                            <a href="index.php?action=add_order" class="btn btn-warning">Commander</a>
                                             <span class="badge text-warning ">rupture temporaire</span>
                                             <?php } ?>
                                     </li>

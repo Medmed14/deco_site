@@ -10,6 +10,7 @@ class Router
     private $ctrluser;
     private $ctrlgrade;
     private $ctrlpub;
+    private $ctrlcommande;
 
     public function __construct()
     {
@@ -18,6 +19,7 @@ class Router
         $this->ctrluser = new AdminUtilisateurController();
         $this->ctrlgrade = new AdminGradeController();
         $this->ctrlpub = new PublicController();
+        $this->ctrlcommande = new PublicOrderController();
     }
 
     public function getPath(){
@@ -65,12 +67,21 @@ class Router
                     case 'list_g':
                         $this->ctrlgrade->listGrades();
                         break;
+                    case 'delete_g':
+                        $this->ctrlgrade->removeGrade();
+                        break;
+                    case 'add_g':
+                        $this->ctrlgrade->addGrade();
+                        break;
+                    case 'edit_g':
+                        $this->ctrlgrade->editGrade();
+                        break;
                     case 'checkout':
                         $this->ctrlpub->recap();
                         break;
-                    case 'order':
-                        $this->ctrlpub->orderObj();
-                        break;
+                    // case 'order':
+                    //     $this->ctrlpub->orderObj();
+                    //     break;
                     case 'pay':
                         $this->ctrlpub->payment();
                         break;
@@ -88,6 +99,9 @@ class Router
                         break;
                     case 'cgv':
                         $this->ctrlpub->cgv();
+                        break;
+                    case 'add_order':
+                        $this->ctrlcommande->addOrder();
                         break;
                     default:
                         throw new Exception('Action non definie');

@@ -5,11 +5,8 @@ class AdminCategorieModel extends Driver{
     public function recupCategories(){
 
         $sql = "SELECT * FROM categorie";
-
         $result = $this->getRequest($sql);
-
         $rows = $result->fetchAll(PDO::FETCH_OBJ);
-        //orm
         $tabCat = [];
 
         foreach ($rows as $row) {

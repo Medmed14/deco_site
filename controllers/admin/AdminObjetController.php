@@ -53,6 +53,7 @@ class AdminObjetController{
                 header('location:index.php?action=list_obj');
             }
         }
+        
         //affichage du formulaire
        $editObj = $this->addCat->recupCategories();
         require_once('./views/admin/objets/adminAddObj.php');
@@ -92,7 +93,7 @@ class AdminObjetController{
                $prix = trim(htmlentities(addslashes($_POST['prix'])));
                $quantite = trim(htmlentities(addslashes($_POST['quantite'])));
                $id_cat = trim(htmlentities(addslashes($_POST['cat'])));
-               $description = trim(htmlentities(addslashes($_POST['desc'])));
+               $description = trim(htmlentities(($_POST['desc'])));
                $image = $_FILES['image']['name'];
                
                $editObj->setMarque($marque);
