@@ -5,20 +5,14 @@
   <div class="row">
     <div class="col-6 offset-3">
       
-
-
-      
       <div class="card-body ">
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-         
-          
             
           <label for="nom">Nom </label>
           <input  type="text" id="nom" required name="nom" class="mb-3 form-control" placeholder="Votre nom svp...">
 
           <label for="prenom">Prénom </label>
           <input type="text" id="prenom" required name="prenom" class="mb-3 form-control" placeholder="Votre prenom svp...">
-          
           
           <label for="tel">Téléphone</label>
           <input type="number" id="tel" required name="tel" class="mb-3 form-control" placeholder="Votre telephone ...">
@@ -34,8 +28,6 @@
 
           <button type="submit" name="soumis" class="mt-2 btn btn-warning col-12"><i class="far fa-check-square"></i> Envoyer</button>
         </form>
-
-
       </div>
     </div>
   </div>

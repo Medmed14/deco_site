@@ -69,7 +69,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <?php foreach ($tabCat as $cat) { ?>
-            <li><a class="dropdown-item" href="index.php?id=<?= $cat->getId_cat(); ?>"><?= ucfirst($cat->getNom_cat()); ?></a></li>
+            <li><a class="dropdown-item" href=""></a></li>
             <?php } ?>
             
           </ul>

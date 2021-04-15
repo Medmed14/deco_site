@@ -72,7 +72,7 @@ class PublicController{
     public function orderObj(){
         if(isset($_GET['id']) && !empty($_GET['id'])){
             $id = addslashes(htmlspecialchars($_GET['id']));
-            
+            var_dump($id);
             require_once('./views/public/orderForm.php');
         }
     }
