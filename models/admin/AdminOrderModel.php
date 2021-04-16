@@ -18,10 +18,15 @@ class AdminOrderModel extends Driver{
             $commande->setObjet($row->objet);
             $commande->setEmail($row->email);
             $commande->setMessage($row->message);
-            
+
             array_push($tabCommandes, $commande);
         }
         return $tabCommandes;
     }
 
+    public function deleteOrder(Commande $commande){
+        $sql  = "DELETE FROM commandes WHERE id_cmd = :id";
+        $result = $this->getRequest($sql, ['id'=>$commande->getId_cmd()]);
+        return $result->rowCount();
+    }
 }

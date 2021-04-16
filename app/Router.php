@@ -108,6 +108,9 @@ class Router
                     case 'list_cmd':
                         $this->ctrlCmdAdm->listOrders();
                         break;
+                    case 'delete_cmd':
+                        $this->ctrlCmdAdm->removeOrder();
+                        break;
                     default:
                         throw new Exception('Action non definie');
                 }
