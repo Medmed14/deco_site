@@ -45,6 +45,12 @@
     <a href="index.php?action=add_g"><i class="fa fa-plus" aria-hidden="true"></i> Ajout</a>
     <a href="index.php?action=list_g"><i class="fa fa-bars" aria-hidden="true"></i> Liste</a>
   </div>
+  <button class="dropdown-btn"><i class="fa fa-list-alt"></i> Commandes Clients
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="index.php?action=list_cmd"><i class="fa fa-bars" aria-hidden="true"></i>Liste commandes</a>
+  </div>
   
   <button class="dropdown-btn"><i class="fas fa-users"></i> Utilisateurs
     <i class="fa fa-caret-down"></i>
