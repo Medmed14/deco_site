@@ -55,8 +55,8 @@
 
 
     <div class="row mt-5">
-        <div class="col-12">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col-12 ">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
                 <?php foreach ($objets as $objet) { ?>
 
                     <div class="col-12">
@@ -64,21 +64,20 @@
                             <img src="./assets/images/<?= $objet->getImage(); ?>" class="card-img-top" alt="<?= $objet->getIntitule(); ?>">
                             <div class="card-body">
                                 <h5 class="card-title fw-bold"><?= $objet->getMarque(); ?> <?= $objet->getIntitule(); ?></h5>
-                                <p class="card-text mt-4 mb-5"><?= $objet->getDescription(); ?></p>
+                                <p class="card-text mt-4 mb-5 "><?= $objet->getDescription(); ?></p>
                                 <ul class="list-group">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         catégorie
                                         <span class="badge bg-secondary rounded-pill"><?= $objet->getCategorie()->getNom_cat();?></span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        prix
-                                        <span class="badge bg-secondary rounded-pill"><?= $objet->getPrix(); ?> €</span>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
                                         nombre d'objet en stock
                                         <span class="badge bg-secondary rounded-pill"><?= $objet->getQuantite(); ?></span>
                                     </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <li class="list-group-item d-flex justify-content-center align-items-center">
+                                        <span><?= $objet->getPrix(); ?> €</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-center align-items-center">
                                         <form action="index.php?action=checkout" method="post">
                                             <input type="hidden" name="id"  value="<?=$objet->getId_obj();?>">
                                             <input type="hidden" name="marque" value="<?= $objet->getMarque(); ?>">
@@ -88,13 +87,13 @@
                                             <input type="hidden" name="quantite" value="<?= $objet->getQuantite(); ?>">
                                             <?php if($objet->getQuantite() >= 1){ ?>
                                                 <button type="submit" name="envoi" class="btn btn-success">Acheter</button>
-                                                <span class="badge text-success ">en stock</span>
+                                                <span class="badge text-success">en stock</span>
                                                 <?php } ?>
                                             </form>
                                             <?php if($objet->getQuantite() == 0){ ?>
 
                                             <a href="index.php?action=add_order" class="btn btn-warning">Commander</a>
-                                            <span class="badge text-warning ">rupture temporaire</span>
+                                            <span class="badge text-warning ">rupture</span>
                                             <?php } ?>
                                     </li>
                                 </ul>

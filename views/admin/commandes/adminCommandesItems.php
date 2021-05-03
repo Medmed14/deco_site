@@ -38,8 +38,9 @@
                     
              <?php if($_SESSION['Auth']->id_g != 3 ){ ?>
              <td><a class="btn btn-danger" href="index.php?action=delete_cmd&id=<?= $commande->getId_cmd();?>" onclick="return confirm('Etes vous sûr de vouloir supprimer ?')"><i class="fas fa-trash" aria-hidden="true"></i></a></td>
-            <?php }} ?>
+            <?php } ?>
         </tr>  
+        <?php } ?>
     </tbody>
 </table>
 

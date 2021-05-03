@@ -10,6 +10,8 @@
         </form>
     </div>
 </div>
+<a href="index.php?action=add_obj"><button class="btn btn-warning col-2 ml-3 mb-4" >Ajout</button></a>
+
 <table class="table table-striped">
     <thead class="text-center">
         <tr>
